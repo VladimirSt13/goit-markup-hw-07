@@ -1,10 +1,13 @@
 .modal-form {
+  $height_input: 40px;
+
   &__base {
     margin-bottom: 20px;
     width: 448px;
   }
 
   &__field {
+    position: relative;
     display: flex;
     flex-direction: column;
     padding: 0;
@@ -21,7 +24,7 @@
   }
   &__input {
     width: 100%;
-    height: 40px;
+    height: $height_input;
     padding: 11px 12px 11px 42px;
 
     border: 1px solid rgba(33, 33, 33, 0.2);
@@ -38,20 +41,15 @@
 
   &__icon {
     position: absolute;
-    top: 50%;
+    bottom: $height_input / 2;
     left: 12px;
     pointer-events: none;
-    transform: translateY(-50%);
+    transform: translateY(50%);
     fill: $text-color-title;
     transition: fill $trans-time $trans-cb;
   }
 
-  &__wrapper {
-    position: relative;
-  }
-
-  &__input:hover + &__icon,
-  &__wrapper:focus-within &__icon {
+  &__input:hover + &__icon {
     fill: $accent-color-primary;
   }
 
